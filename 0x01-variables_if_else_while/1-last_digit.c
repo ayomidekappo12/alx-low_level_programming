@@ -5,11 +5,10 @@
 /**
  * main - Entry point
  *
- * description: 'This program will assign a random number to the variable n each time it is executed.'
+ * description: print last digit in random number
  *
  * Return 0 (success)
  */
-
 int main(void)
 {
 	int n, last;
