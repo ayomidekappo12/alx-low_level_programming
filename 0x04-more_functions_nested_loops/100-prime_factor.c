@@ -1,27 +1,23 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 /**
- * main - print the largest prime number
+ * main - Entry point
  *
- * Return: Always
+ * Return: Always 0.
  */
+
 int main(void)
+
 {
-long prime = 612852475143, div;
-while (div < (prime / 2))
+long n, i;
+
+n = 612852475143;
+for (i = 2; i < n; i++)
 {
-if ((prime % 2) == 0)
-{
-prime /= 2;
-continue;
+while (n % i == 0)
+n = n / i;
 }
-for (div = 3; div < (prime / 2); div += 2)
-{
-if ((prime % div) == 0)
-prime /= div;
-}
-}
-printf("%d\n", prime);
+
+printf("%lu\n", n);
+
 return (0);
 }
