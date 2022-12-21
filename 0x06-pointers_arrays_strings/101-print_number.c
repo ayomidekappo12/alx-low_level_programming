@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * print_number - prints an integer
@@ -22,7 +23,7 @@ void print_number(int n)
 		index = 1;
 		n += 1;
 	}
-	n = n
+	n = -n;
 	}
 	while (len != 1)
 	{
