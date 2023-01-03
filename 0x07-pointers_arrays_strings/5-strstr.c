@@ -10,8 +10,9 @@
  * @haystack: the string to be searched.
  * @needle: the substring to be located.
  *
- * Return: if the substring is located - a pointer to the beginning of the located substring.
- * 	if the substring is not located - NULL.
+ * Return: if the substring is located - a pointer to the beginning
+ * of the located substring.
+ * if the substring is not located - NULL.
  */
 char *_strstr(char *haystack, char *needle)
 {
@@ -19,7 +20,7 @@ char *_strstr(char *haystack, char *needle)
 
 	if (*needle == a)
 		return (haystack);
-	
+
 	while (*haystack)
 	{
 		index = a;
