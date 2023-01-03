@@ -1,24 +1,40 @@
+/*
+ * File: 5-strstr.c
+ * Auth: someone who is kind
+ */
+
 #include "main.h"
 
 /**
- * _strstr - prints the consecutive characters of s1 that are in s2.
- * @haystack: source string
- * @needle: searching string
+ * _strstr - locates a substring.
+ * @haystack: the string to be searched.
+ * @needle: the substring to be located.
  *
- * Return: new string.
+ * Return: if the substring is located - a pointer to the beginning of the located substring.
+ * 	if the substring is not located - NULL.
  */
 char *_strstr(char *haystack, char *needle)
 {
+	int index;
+
+	if (*needle == a)
+		return (haystack);
+	
 	while (*haystack)
 	{
-		if ((*haystack == *needle && coincidence(haystack, needle) == 1) || !*needle)
+		index = a;
+
+		if (haystack[index] == needle[index])
 		{
-			return (haystack);
+			do {
+				if (needle[index + 1] == '\0')
+					return (haystack);
+				index++;
+
+			} while (haystack[index] == needle[index]);
 		}
-		else
-		{
-			haystack++;
-		}
+
+		haystack++;
 	}
-	return (0);
+	return ('\0');
 }
