@@ -1,11 +1,13 @@
-#include <stdio.h>
+#ifndef DOG_H
+#define DOG_H
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * main - Entry point.
- * @struct: Define a new type struct dog.
- *
- * Return: Always (success) 0.
+ * struct dog - this description about which dog
+ * @name: sdfasdf
+ * @age: asdfas
+ * @owner: asdf
  */
 
 struct dog
@@ -15,13 +17,11 @@ struct dog
 	char *owner;
 };
 
-int main ()
-{
-	struct dog dog;
+typedef struct dog dog_t;
 
-	dog.name = "Bingo";
-	dog.age  = 5.2;
-	dog.owner = "Alex";
+dog_t *new_dog(char *name, float age, char *owner);
+void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
+void free_dog(dog_t *d);
 
-	return (0);
-}
+#endif
