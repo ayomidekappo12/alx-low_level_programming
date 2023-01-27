@@ -1,42 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
- * len - Calculates the length of a string.
+ * add_node - Add new node to a linked list.
+ * @head: head of the linked list.
+ * @str: string to add.
  *
- * @str: Constant string
  *
- * Return: The length of the string
+ * Return: pointer of the new element added to linked list.
  */
 
-int len(const char *str)
+list_t *add_node(list_t **head, const char *str)
 {
-	int count;
+	list_t *new;
 
-	if (str == NULL)
-		return (0);
-	for (count = 0; str[count] != '\0'; count++)
-		;
-	return (count);
+	new = malloc(sizeof(list_t));
+	if (!new)
+		return (NULL);
+	new->str = strdup(str);
+	new->len = _strlen(str);
+	new->next = *head;
+	*head = new;
+	return (new);
 }
 
 /**
- * add_node - function that adds a new node at the beginning of a list_t list.
+ * _strlen - Calculate lenght of a string.
+ * @s: string.
  *
- * @head: Pointer to head of the linked list
- * @str: String to assigned to the node
- *
- * Return: the address of the new element, or NULL if it failed
+ * Return: lenght of the string s.
  */
 
-list_t *add_node(list_t **head, char *str)
+int _strlen(const char *s)
 {
-	list_t *new_node = (list_t *) malloc(sizeof(list_t));
+	int idx = 0;
 
-	if (new_node == NULL)
-		return (NULL);
-	new_node->str = strdup(str);
-	new_node->len =  len(str);
-	new_node->next = (*head);
-	(*head) = new_node;
-	return (*head);
+	for (; s[idx]; idx++)
+	;
+	return (idx);
 }
