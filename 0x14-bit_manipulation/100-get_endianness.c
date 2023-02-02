@@ -1,5 +1,5 @@
 /**
-get_endianness - Check the endianess
+ *get_endianness - Check the endianess
  *
  * Return: void
  */
