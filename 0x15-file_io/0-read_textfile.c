@@ -3,7 +3,7 @@
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output
  * @filename: The name of the file to open it
- * @letter: The numbers of bytes to read
+ * @letters: The numbers of bytes to read
  * Return: Number of bytes to read and write to the output
  */
 ssize_t read_textfile(const char *filename, size_t letters)
