@@ -10,10 +10,10 @@
  */
 char *fill_memory(char *memory_area, char byte_value, unsigned int num_bytes)
 {
-    for (unsigned int i = 0; i < num_bytes; i++) {
-        memory_area[i] = byte_value;
-    }
-    return memory_area;
+	for (unsigned int i = 0; i < num_bytes; i++)
+		memory_area[i] = byte_value;
+
+	return (memory_area);
 }
 
 /**
@@ -22,50 +22,49 @@ char *fill_memory(char *memory_area, char byte_value, unsigned int num_bytes)
  */
 void free_string_array(char **string_array)
 {
-    char **temp = string_array;
+	char **temp = string_array;
 
-    if (!string_array) {
-        return;
-    }
-    while (*string_array) {
-        free(*string_array++);
-    }
-    free(temp);
+	if (!string_array)
+		return;
+
+	while (*string_array)
+		free(*string_array++);
+
+	free(temp);
 }
 
 /**
  * realloc_memory - reallocates a block of memory
- * @previous_memory: pointer to the previously allocated block
- * @previous_size: byte size of the previous block
+ * @ptr: pointer to the previously allocated block
+ * @old_size: byte size of the previous block
  * @new_size: byte size of the new block
  *
  * Return: pointer to the newly allocated block
  */
-void *realloc_memory(void *previous_memory, unsigned int previous_size, unsigned int new_size)
+void *realloc_memory(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-    char *new_memory;
+	char *new_memory;
 
-    if (!previous_memory) {
-        return malloc(new_size);
-    }
-    if (!new_size) {
-        free(previous_memory);
-        return NULL;
-    }
-    if (new_size == previous_size) {
-        return previous_memory;
-   }
+	if (!ptr)
+		return (malloc(new_size));
 
-    new_memory = malloc(new_size);
-    if (!new_memory) {
-        return NULL;
-    }
+	if (!new_size)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (new_size == old_size)
+		return (ptr);
 
-    unsigned int copy_size = previous_size < new_size ? previous_size : new_size;
-    for (unsigned int i = 0; i < copy_size; i++) {
-        new_memory[i] = ((char *)previous_memory)[i];
-    }
+	new_memory = malloc(new_size);
+	if (!new_memory)
+		return (NULL);
 
-    free(previous_memory);
-    return new_memory;
+	unsigned int copy_size = old_size < new_size ? old_size : new_size;
+
+	for (unsigned int i = 0; i < copy_size; i++)
+		new_memory[i] = ((char *)ptr)[i];
+
+	free(ptr);
+	return (new_memory);
 }
