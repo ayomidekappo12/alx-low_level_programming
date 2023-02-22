@@ -133,9 +133,9 @@ int _putsfd(char *str, int fd);
 
 /* toem_string.c */
 int _strlen(char *);
-int _strcmp(char *, char *);
-char *starts_with(const char *, const char *);
-char *_strcat(char *, char *);
+int string_compare(char *, char *);
+char *string_starts_with(const char *, const char *);
+char *string_concat(char *, char *);
 
 /* toem_string1.c */
 char *_strcpy(char *, char *);
@@ -167,9 +167,9 @@ int _isalpha(int);
 int _atoi(char *);
 
 /* toem_errors1.c */
-int _erratoi(char *);
+int string_to_int(char *);
 void print_error(info_t *, char *);
-int print_d(int, int);
+int print_decimal(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
