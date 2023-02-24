@@ -14,5 +14,9 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m);
 int get_endianness(void);
 int _putchar(char c);
 unsigned int _atoi(const char *str);
+int _myenv(info_t *arguments);
+char *_getenv(info_t *info, const char *name);
+int _mysetenv(info_t *args);
+
 
 #endif
